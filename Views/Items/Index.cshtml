@@ -1,0 +1,11 @@
+@model List<RepairCase>
+@{ ViewData["Title"] = "Каталог"; }
+<h1>Каталог кейсов</h1>
+<form method="get" class="search">
+    <input name="q" value="@ViewData["q"]" placeholder="Поиск: видеокарта, via, обрыв…" />
+    <button class="btn">Найти</button>
+</form>
+@if (!Model.Any()) { <p class="muted">Ничего не найдено.</p> }
+<div class="grid">
+    @foreach (var c in Model) { <partial name="_Card" model="c" /> }
+</div>

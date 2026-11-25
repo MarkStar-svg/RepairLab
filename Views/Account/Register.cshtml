@@ -1,0 +1,11 @@
+@model RegisterViewModel
+@{ ViewData["Title"] = "Регистрация"; }
+<form asp-action="Register" method="post" class="card form narrow">
+    <h1>Регистрация</h1>
+    <div class="field"><label asp-for="FullName"></label><input asp-for="FullName" /><span asp-validation-for="FullName" class="err"></span></div>
+    <div class="field"><label asp-for="Email"></label><input asp-for="Email" /><span asp-validation-for="Email" class="err"></span></div>
+    <div class="field"><label asp-for="Password"></label><input asp-for="Password" /><span asp-validation-for="Password" class="err"></span></div>
+    <div class="field"><label asp-for="ConfirmPassword"></label><input asp-for="ConfirmPassword" /><span asp-validation-for="ConfirmPassword" class="err"></span></div>
+    <button class="btn">Создать аккаунт</button>
+    <p class="muted">Уже есть аккаунт? <a asp-action="Login">Войти</a></p>
+</form>

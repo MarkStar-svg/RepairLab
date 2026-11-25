@@ -1,0 +1,9 @@
+@model RepairCase
+@{ ViewData["Title"] = "Удаление"; }
+<partial name="_CabinetNav" />
+<form asp-action="Delete" method="post" class="card narrow">
+    <h1>Удалить запись?</h1>
+    <p><b>@Model.Title</b></p><p class="muted">@Model.Defect</p>
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button class="btn danger">Да, удалить</button> <a class="btn ghost" asp-action="MyItems">Отмена</a>
+</form>

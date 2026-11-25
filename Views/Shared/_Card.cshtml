@@ -1,0 +1,7 @@
+@model RepairCase
+<article class="card">
+    <div class="meta"><span class="tag">@Model.DeviceType</span><span class="tag scale">@Model.Scale</span><span class="tag st">@Model.Status</span></div>
+    <h3>@Model.Title</h3>
+    <p class="muted">@Model.Defect</p>
+    <a class="btn ghost sm" asp-controller="Items" asp-action="Details" asp-route-id="@Model.Id">Подробнее →</a>
+</article>

@@ -1,0 +1,10 @@
+@model RepairCase
+<input type="hidden" asp-for="Id" />
+<div class="field"><label asp-for="Title"></label><input asp-for="Title" /><span asp-validation-for="Title" class="err"></span></div>
+<div class="row2">
+    <div class="field"><label asp-for="DeviceType"></label><select asp-for="DeviceType" asp-items="@(new SelectList(RepairCase.Devices))"></select></div>
+    <div class="field"><label asp-for="Scale"></label><select asp-for="Scale" asp-items="@(new SelectList(RepairCase.Scales))"></select></div>
+</div>
+<div class="field"><label asp-for="Defect"></label><input asp-for="Defect" placeholder="Например: обрыв дорожки под BGA" /><span asp-validation-for="Defect" class="err"></span></div>
+<div class="field"><label asp-for="Method"></label><select asp-for="Method" asp-items="@(new SelectList(RepairCase.Methods))"></select></div>
+<div class="field"><label asp-for="Description"></label><textarea asp-for="Description" rows="5"></textarea><span asp-validation-for="Description" class="err"></span></div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] — RepairLab FIB-SEM</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<header class="top">
+    <div class="wrap bar">
+        <a class="logo" asp-controller="Home" asp-action="Index">⬡ Repair<b>Lab</b></a>
+        <input type="checkbox" id="burger" class="burger-t" />
+        <label for="burger" class="burger">☰</label>
+        <nav class="menu">
+            <a asp-controller="Home" asp-action="Index">Главная</a>
+            <a asp-controller="Items" asp-action="Index">Каталог</a>
+            <a asp-controller="Home" asp-action="About">О проекте</a>
+            <a asp-controller="Home" asp-action="Contacts">Контакты</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Cabinet" asp-action="Index">Личный кабинет</a>
+                <form asp-controller="Account" asp-action="Logout" method="post" class="inline"><button class="link">Выйти</button></form>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Login">Войти</a>
+                <a class="btn sm" asp-controller="Account" asp-action="Register">Регистрация</a>
+            }
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    @if (TempData["Ok"] != null) { <div class="alert ok">@TempData["Ok"]</div> }
+    @RenderBody()
+</main>
+<footer class="foot"><div class="wrap">© 2026 RepairLab · Ремонт плат на уровне нм и мкм · Учебный проект ASP.NET Core MVC</div></footer>
+</body>
+</html>

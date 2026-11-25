@@ -1,0 +1,17 @@
+@model List<RepairCase>
+@{ ViewData["Title"] = "Мои записи"; }
+<partial name="_CabinetNav" />
+<h1>Мои записи</h1>
+@if (!Model.Any()) { <p class="muted">Пока пусто. <a asp-action="Create">Создайте первую заявку</a>.</p> }
+<div class="grid">
+@foreach (var c in Model)
+{
+    <article class="card">
+        <div class="meta"><span class="tag">@c.DeviceType</span><span class="tag st">@c.Status</span></div>
+        <h3>@c.Title</h3><p class="muted">@c.Defect</p>
+        <a class="btn ghost sm" asp-controller="Items" asp-action="Details" asp-route-id="@c.Id">Открыть</a>
+        <a class="btn ghost sm" asp-action="Edit" asp-route-id="@c.Id">Изменить</a>
+        <a class="btn danger sm" asp-action="Delete" asp-route-id="@c.Id">Удалить</a>
+    </article>
+}
+</div>

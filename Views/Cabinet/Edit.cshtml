@@ -1,0 +1,8 @@
+@model RepairCase
+@{ ViewData["Title"] = "Редактирование"; }
+<partial name="_CabinetNav" />
+<form asp-action="Edit" method="post" class="card form narrow">
+    <h1>Редактирование</h1>
+    <partial name="_CaseForm" model="Model" />
+    <button class="btn">Сохранить</button> <a class="btn ghost" asp-action="MyItems">Отмена</a>
+</form>

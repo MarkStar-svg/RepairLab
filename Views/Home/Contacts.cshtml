@@ -1,0 +1,13 @@
+@model ContactViewModel
+@{ ViewData["Title"] = "Контакты"; }
+<h1>Контакты</h1>
+<div class="grid two">
+    <div class="card"><p>📍 Прага, Чехия</p><p>✉ info@repairlab.local</p><p>🕒 Пн–Пт, 9:00–18:00</p></div>
+    <form asp-action="Contacts" method="post" class="card form">
+        <div asp-validation-summary="ModelOnly" class="err"></div>
+        <div class="field"><label asp-for="Name"></label><input asp-for="Name" /><span asp-validation-for="Name" class="err"></span></div>
+        <div class="field"><label asp-for="Email"></label><input asp-for="Email" /><span asp-validation-for="Email" class="err"></span></div>
+        <div class="field"><label asp-for="Message"></label><textarea asp-for="Message" rows="4"></textarea><span asp-validation-for="Message" class="err"></span></div>
+        <button class="btn">Отправить</button>
+    </form>
+</div>

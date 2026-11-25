@@ -1,0 +1,18 @@
+@model List<RepairCase>
+@{ ViewData["Title"] = "Главная"; }
+<section class="hero">
+    <p class="eyebrow">FIB-SEM · нанометры · микрометры</p>
+    <h1>Ремонт плат, от которого отказываются обычные сервисы</h1>
+    <p class="lead">Прогары текстолита, обрывы внутренних дорожек, дефекты via у ноутбуков, ПК и видеокарт. Находим дефект сканирующим электронным микроскопом и восстанавливаем проводник сфокусированным ионным пучком.</p>
+    <a class="btn" asp-controller="Items" asp-action="Index">Смотреть кейсы</a>
+    <a class="btn ghost" asp-controller="Account" asp-action="Register">Оставить заявку</a>
+</section>
+<section class="stats">
+    <div><b>нм</b><span>разрешение диагностики</span></div>
+    <div><b>мкм</b><span>размер восстанавливаемых дорожек</span></div>
+    <div><b>3 слоя+</b><span>доступ к внутренним слоям платы</span></div>
+</section>
+<h2>Последние кейсы</h2>
+<div class="grid">
+    @foreach (var c in Model) { <partial name="_Card" model="c" /> }
+</div>

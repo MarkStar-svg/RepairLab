@@ -1,0 +1,18 @@
+@model RepairCase
+@{ ViewData["Title"] = Model.Title; }
+<a class="muted" asp-action="Index">← Назад в каталог</a>
+<article class="card detail">
+    <div class="meta"><span class="tag">@Model.DeviceType</span><span class="tag scale">@Model.Scale</span><span class="tag st">@Model.Status</span></div>
+    <h1>@Model.Title</h1>
+    <dl>
+        <dt>Дефект</dt><dd>@Model.Defect</dd>
+        <dt>Метод</dt><dd>@Model.Method</dd>
+        <dt>Масштаб работ</dt><dd>@Model.Scale</dd>
+        <dt>Автор</dt><dd>@Model.AuthorName · @Model.CreatedAt.ToString("dd.MM.yyyy")</dd>
+    </dl>
+    <p>@Model.Description</p>
+    @if (User.IsInRole("Admin"))
+    {
+        <form asp-action="AdminDelete" asp-route-id="@Model.Id" method="post"><button class="btn danger">Удалить (админ)</button></form>
+    }
+</article>
